@@ -3,6 +3,8 @@
 var date = DateTime.Now;
 var random = new Random();
 
+var games = new List<string>();
+
 string name = GetName();
 
 Menu(name);
@@ -11,38 +13,48 @@ void Menu(string name)
 {
     Console.WriteLine("-----------------------------");
     Console.WriteLine($"Hello {name.ToUpper()}. It's {date}. This is your math's game. Let's get started.\n");
-    Console.WriteLine($@"What game would you like to play today?:
-A - Addition
-S - Substraction
-M - Multiplication
-D - Division
-Q - Quit
-");
-    Console.WriteLine("---------------------------");
 
-    var userGameSelected = Console.ReadLine().Trim().ToLower();
+    bool isGameOn = true;
 
-    switch (userGameSelected)
+    do
     {
-        case "a":
-            AdditionGame("Addition selected");
-            break;
-        case "s":
-            SubstractionGame("Substraction game selected");
-            break;
-        case "m":
-            MultiplicationGame("Multiplication game selected");
-            break;
-        case "d":
-            DivisionGame("Division game selected");
-            break;
-        case "q":
-            QuitGame();
-            break;
-        default:
-            Console.WriteLine($"Incorrect input: {userGameSelected}");
-            break;
-    }
+        Console.Clear();
+        Console.WriteLine($@"What game would you like to play today?:
+                A - Addition
+                S - Substraction
+                M - Multiplication
+                D - Division
+                Q - Quit
+                ");
+        Console.WriteLine("---------------------------");
+
+        var userGameSelected = Console.ReadLine().Trim().ToLower();
+
+        switch (userGameSelected)
+        {
+            case "a":
+                AdditionGame("Addition selected");
+                break;
+            case "s":
+                SubstractionGame("Substraction game selected");
+                break;
+            case "m":
+                MultiplicationGame("Multiplication game selected");
+                break;
+            case "d":
+                DivisionGame("Division game selected");
+                break;
+            case "q":
+                Console.Clear();
+                Console.WriteLine("Goodbye");
+                isGameOn = false;
+                break;
+            default:
+                Console.WriteLine($"Incorrect input: {userGameSelected}");
+                Console.ReadLine();
+                break;
+        }
+    } while (isGameOn);
 }
 string GetName()
 {
@@ -81,6 +93,7 @@ void AdditionGame(string message)
     }
 
     Console.WriteLine($"Game over. Final score: {score}");
+    Console.ReadLine();
 }
 void SubstractionGame(string message)
 {
@@ -112,7 +125,7 @@ void SubstractionGame(string message)
     }
 
     Console.WriteLine($"Game over. Final score: {score}");
-
+    Console.ReadLine();
 }
 void MultiplicationGame(string message)
 {
@@ -144,6 +157,7 @@ void MultiplicationGame(string message)
     }
 
     Console.WriteLine($"Game over. Final score: {score}");
+    Console.ReadLine();
 }
 void DivisionGame(string message)
 {
@@ -174,11 +188,7 @@ void DivisionGame(string message)
     }
 
     Console.WriteLine($"Game over. Final score: {score}");
-}
-void QuitGame()
-{
-    Console.WriteLine("Goodbye");
-    Environment.Exit(1);
+    Console.ReadLine();
 }
 int[] GetDivisionNumbers()
 {
