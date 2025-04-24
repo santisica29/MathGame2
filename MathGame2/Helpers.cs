@@ -1,9 +1,11 @@
-﻿namespace MathGame2
+﻿using MathGame2.Models;
+
+namespace MathGame2
 {
     internal class Helpers
     {
-        static List<string> games = new();
-        internal static void GetGames()
+        internal static List<Game> games = new();
+        internal static void PrintGames()
         {
             Console.Clear();
             Console.WriteLine("Games History");
@@ -16,7 +18,7 @@
             {
                 foreach (var game in games)
                 {
-                    Console.WriteLine(game);
+                    Console.WriteLine($"{game.Date} - {game.Type}: {game.Score}pts");
                 }
             }
             Console.WriteLine("-------------------------\n");
@@ -31,7 +33,12 @@
         }
         internal static void AddToHistory(int score, string gameType)
         {
-            games.Add($"{DateTime.Now} - {gameType}: Score = {score}");
+            games.Add(new Game
+            {
+                Date = DateTime.Now,
+                Score = score,
+                Type = gameType
+            });
         }
         internal static int[] GetDivisionNumbers()
         {

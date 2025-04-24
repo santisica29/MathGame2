@@ -29,7 +29,7 @@
                 switch (userGameSelected)
                 {
                     case "v":
-                        Helpers.GetGames();
+                        Helpers.PrintGames();
                         break;
                     case "a":
                         gameEngine.AdditionGame("Addition selected");
