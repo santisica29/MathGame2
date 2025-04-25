@@ -9,7 +9,15 @@ internal class Game
     //    get { return _score; }
     //    set { _score = value; }
     //}
-    public int Score { get; set; }
-    public DateTime Date { get; set; }
-    public string Type { get; set; }
+    internal int Score { get; set; }
+    internal DateTime Date { get; set; }
+    internal GameType Type { get; set; }
+}
+
+internal enum GameType
+{
+    Addition,
+    Substraction,
+    Multiplication,
+    Division
 }

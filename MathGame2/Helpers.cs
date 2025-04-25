@@ -31,7 +31,7 @@ namespace MathGame2
             var name = Console.ReadLine();
             return name;
         }
-        internal static void AddToHistory(int score, string gameType)
+        internal static void AddToHistory(int score, GameType gameType)
         {
             games.Add(new Game
             {

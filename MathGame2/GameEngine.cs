@@ -1,4 +1,6 @@
-﻿namespace MathGame2
+﻿using MathGame2.Models;
+
+namespace MathGame2
 {
     internal class GameEngine
     {
@@ -31,7 +33,7 @@
                 }
                 Console.ReadLine();
             }
-            Helpers.AddToHistory(score, "Addition");
+            Helpers.AddToHistory(score, GameType.Addition);
             Console.WriteLine($"Game over. Final score: {score}");
             Console.ReadLine();
         }
@@ -64,7 +66,7 @@
                 }
                 Console.ReadLine();
             }
-            Helpers.AddToHistory(score, "Substraction");
+            Helpers.AddToHistory(score, GameType.Substraction);
             Console.WriteLine($"Game over. Final score: {score}");
             Console.ReadLine();
         }
@@ -97,7 +99,7 @@
                 }
                 Console.ReadLine();
             }
-            Helpers.AddToHistory(score, "Multiplication");
+            Helpers.AddToHistory(score, GameType.Multiplication);
 
             Console.WriteLine($"Game over. Final score: {score}");
             Console.ReadLine();
@@ -129,7 +131,7 @@
                 }
                 Console.ReadLine();
             }
-            Helpers.AddToHistory(score, "Division");
+            Helpers.AddToHistory(score, GameType.Division);
 
             Console.WriteLine($"Game over. Final score: {score}");
             Console.ReadLine();
