@@ -7,6 +7,7 @@
         {
             Console.WriteLine("-----------------------------");
             Console.WriteLine($"Hello {name.ToUpper()}. It's {DateTime.Now}. This is your math's game. Let's get started.\n");
+            Console.WriteLine("Press any key to see the menu");
             Console.ReadLine();
 
             bool isGameOn = true;

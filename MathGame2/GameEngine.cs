@@ -20,9 +20,11 @@ namespace MathGame2
                 secondNumber = random.Next(1, 9);
 
                 Console.WriteLine($"{firstNumber} + {secondNumber}");
-                var result = int.Parse(Console.ReadLine());
+                var result = Console.ReadLine();
 
-                if (result == (firstNumber + secondNumber))
+                result = Helpers.ValidateResult(result);
+
+                if (int.Parse(result) == (firstNumber + secondNumber))
                 {
                     Console.WriteLine("Your answer was correct");
                     score++;
@@ -53,9 +55,11 @@ namespace MathGame2
                 secondNumber = random.Next(1, 9);
 
                 Console.WriteLine($"{firstNumber} - {secondNumber}");
-                var result = int.Parse(Console.ReadLine());
+                var result = Console.ReadLine();
 
-                if (result == (firstNumber - secondNumber))
+                result = Helpers.ValidateResult(result);
+
+                if (int.Parse(result) == (firstNumber - secondNumber))
                 {
                     Console.WriteLine("Your answer was correct");
                     score++;
@@ -86,9 +90,11 @@ namespace MathGame2
                 secondNumber = random.Next(1, 9);
 
                 Console.WriteLine($"{firstNumber} * {secondNumber}");
-                var result = int.Parse(Console.ReadLine());
+                var result = Console.ReadLine();
 
-                if (result == (firstNumber * secondNumber))
+                result = Helpers.ValidateResult(result);
+
+                if (int.Parse(result) == (firstNumber * secondNumber))
                 {
                     Console.WriteLine("Your answer was correct");
                     score++;
@@ -118,9 +124,11 @@ namespace MathGame2
 
 
                 Console.WriteLine($"{firstNumber} / {secondNumber}");
-                var result = int.Parse(Console.ReadLine());
+                var result = Console.ReadLine();
 
-                if (result == (firstNumber / secondNumber))
+                result = Helpers.ValidateResult(result);
+
+                if (int.Parse(result) == (firstNumber / secondNumber))
                 {
                     Console.WriteLine("Your answer was correct");
                     score++;
