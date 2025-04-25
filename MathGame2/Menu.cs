@@ -17,7 +17,7 @@
                 Console.WriteLine($@"What game would you like to play today?:
                 V - View Previous Games
                 A - Addition
-                S - Substraction
+                S - Subtraction
                 M - Multiplication
                 D - Division
                 Q - Quit
@@ -35,7 +35,7 @@
                         gameEngine.AdditionGame("Addition selected");
                         break;
                     case "s":
-                        gameEngine.SubstractionGame("Substraction game selected");
+                        gameEngine.SubstractionGame("Subtraction game selected");
                         break;
                     case "m":
                         gameEngine.MultiplicationGame("Multiplication game selected");

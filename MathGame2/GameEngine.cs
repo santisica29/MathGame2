@@ -66,7 +66,7 @@ namespace MathGame2
                 }
                 Console.ReadLine();
             }
-            Helpers.AddToHistory(score, GameType.Substraction);
+            Helpers.AddToHistory(score, GameType.Subtraction);
             Console.WriteLine($"Game over. Final score: {score}");
             Console.ReadLine();
         }
