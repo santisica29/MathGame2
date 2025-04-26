@@ -44,11 +44,11 @@ namespace MathGame2
                         break;
                     case GameType.Subtraction:
                         Console.WriteLine($"{firstNumber} - {secondNumber}");
-                        calculation = secondNumber - firstNumber;
+                        calculation = firstNumber - secondNumber;
                         break;
                     case GameType.Multiplication:
                         Console.WriteLine($"{firstNumber} * {secondNumber}");
-                        calculation = secondNumber * firstNumber;
+                        calculation = firstNumber * secondNumber;
                         break;
                     case GameType.Division:
                         var divisionNumbers = Helpers.GetDivisionNumbers();

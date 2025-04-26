@@ -46,11 +46,11 @@ namespace MathGame2
                         break;
                     case "m":
                         difficulty = Helpers.GetDifficulty();
-                        gameEngine.PlayGame(GameType.Subtraction, difficulty);
+                        gameEngine.PlayGame(GameType.Multiplication, difficulty);
                         break;
                     case "d":
                         difficulty = Helpers.GetDifficulty();
-                        gameEngine.PlayGame(GameType.Subtraction, difficulty);
+                        gameEngine.PlayGame(GameType.Division, difficulty);
                         break;
                     case "q":
                         Console.Clear();
