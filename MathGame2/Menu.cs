@@ -1,4 +1,6 @@
-﻿namespace MathGame2
+﻿using MathGame2.Models;
+
+namespace MathGame2
 {
     internal class Menu
     {
@@ -26,6 +28,7 @@
                 Console.WriteLine("---------------------------");
 
                 var userGameSelected = Console.ReadLine().Trim().ToLower();
+                var difficulty = Difficulty.Easy;
 
                 switch (userGameSelected)
                 {
@@ -33,16 +36,21 @@
                         Helpers.PrintGames();
                         break;
                     case "a":
-                        gameEngine.AdditionGame("Addition selected");
+                        difficulty = Helpers.GetDifficulty();
+                        gameEngine.PlayGame(GameType.Addition, difficulty);
+                        // gameEngine.AdditionGame("Addition selected");
                         break;
                     case "s":
-                        gameEngine.SubstractionGame("Subtraction game selected");
+                        difficulty = Helpers.GetDifficulty();
+                        gameEngine.PlayGame(GameType.Subtraction, difficulty);
                         break;
                     case "m":
-                        gameEngine.MultiplicationGame("Multiplication game selected");
+                        difficulty = Helpers.GetDifficulty();
+                        gameEngine.PlayGame(GameType.Subtraction, difficulty);
                         break;
                     case "d":
-                        gameEngine.DivisionGame("Division game selected");
+                        difficulty = Helpers.GetDifficulty();
+                        gameEngine.PlayGame(GameType.Subtraction, difficulty);
                         break;
                     case "q":
                         Console.Clear();

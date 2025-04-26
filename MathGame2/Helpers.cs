@@ -1,5 +1,6 @@
 ﻿using MathGame2.Models;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace MathGame2
 {
@@ -37,12 +38,28 @@ namespace MathGame2
             {
                 foreach (var game in gamesToPrint)
                 {
-                    Console.WriteLine($"{game.Date} - {game.Type}: {game.Score}pts");
+                    Console.WriteLine($"{game.Date} - {game.Type} - {game.Difficulty}: {game.Score}pts");
                 }
             }
             Console.WriteLine("-------------------------\n");
             Console.WriteLine("Press any key to go back to the main menu");
             Console.ReadLine();
+        }
+
+        internal static Difficulty GetDifficulty()
+        {
+            Console.WriteLine("Choose the level of difficulty: easy, medium, hard (e, m ,h)");
+            string userDifficulty = Console.ReadLine().Trim().ToLower();
+
+            while (string.IsNullOrEmpty(userDifficulty) || !Regex.IsMatch(userDifficulty, "^(e|m|h)$"))
+            {
+                Console.WriteLine("Wrong input try again");
+                userDifficulty = Console.ReadLine();
+            }
+
+            if (userDifficulty == "e") return Difficulty.Easy;
+            else if (userDifficulty == "h") return Difficulty.Hard;
+            else return Difficulty.Medium;
         }
         internal static string GetName()
         {
@@ -57,13 +74,14 @@ namespace MathGame2
 
             return name;
         }
-        internal static void AddToHistory(int score, GameType gameType)
+        internal static void AddToHistory(int score, GameType gameType, Difficulty difficulty)
         {
             games.Add(new Game
             {
                 Date = DateTime.Now,
                 Score = score,
-                Type = gameType
+                Type = gameType,
+                Difficulty = difficulty,
             });
         }
         internal static int[] GetDivisionNumbers()

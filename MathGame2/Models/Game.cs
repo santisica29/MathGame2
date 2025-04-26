@@ -12,6 +12,7 @@ internal class Game
     internal int Score { get; set; }
     internal DateTime Date { get; set; }
     internal GameType Type { get; set; }
+    internal Difficulty Difficulty { get; set; }
 }
 
 internal enum GameType
@@ -20,4 +21,11 @@ internal enum GameType
     Subtraction,
     Multiplication,
     Division
+}
+
+internal enum Difficulty
+{
+    Easy,
+    Medium,
+    Hard
 }
