@@ -1,5 +1,7 @@
 ﻿using MathGame2.Models;
+using System;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text.RegularExpressions;
 
 namespace MathGame2
@@ -98,6 +100,40 @@ namespace MathGame2
             }
 
             return result;
+        }
+
+        internal static int[] GetNumbers(Difficulty difficulty, GameType gameType = GameType.Addition)
+        {
+            if (gameType == GameType.Division)
+            {
+                return GetDivisionNumbers();
+            }
+
+            Random random = new Random();
+            int num1;
+            int num2;
+            int[] numbers = new int[2];
+
+            if (difficulty == Difficulty.Easy)
+            {
+                num1 = random.Next(1, 9);
+                num2 = random.Next(1, 9);
+            }
+            else if (difficulty == Difficulty.Medium)
+            {
+                num1 = random.Next(1, 50);
+                num2 = random.Next(1, 50);
+            }
+            else
+            {
+                num1 = random.Next(1, 100);
+                num2 = random.Next(1, 100);
+            }
+
+            numbers[0] = num1;
+            numbers[1] = num2;
+
+            return numbers;
         }
     }
 }

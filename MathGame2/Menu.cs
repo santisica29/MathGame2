@@ -23,6 +23,7 @@ namespace MathGame2
                 S - Subtraction
                 M - Multiplication
                 D - Division
+                R - Random Mode
                 Q - Quit
                 ");
                 Console.WriteLine("---------------------------");
@@ -51,6 +52,9 @@ namespace MathGame2
                     case "d":
                         difficulty = Helpers.GetDifficulty();
                         gameEngine.PlayGame(GameType.Division, difficulty);
+                        break;
+                    case "r":
+                        gameEngine.PlayRandom();
                         break;
                     case "q":
                         Console.Clear();
