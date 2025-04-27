@@ -54,7 +54,7 @@ namespace MathGame2
                         gameEngine.PlayGame(GameType.Division, difficulty);
                         break;
                     case "r":
-                        gameEngine.PlayRandom();
+                        gameEngine.PlayGame(GameType.Random, difficulty);
                         break;
                     case "q":
                         Console.Clear();

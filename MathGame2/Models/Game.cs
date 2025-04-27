@@ -2,6 +2,7 @@
 
 internal class Game
 {
+
     //private int _score;
 
     //public int Score
@@ -13,6 +14,8 @@ internal class Game
     internal DateTime Date { get; set; }
     internal GameType Type { get; set; }
     internal Difficulty Difficulty { get; set; }
+    internal TimeSpan TimeToCompletion { get; set; }
+
 }
 
 internal enum GameType

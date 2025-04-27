@@ -1,4 +1,5 @@
 ﻿using MathGame2.Models;
+using System.Diagnostics;
 using System.Security.AccessControl;
 
 namespace MathGame2
@@ -7,6 +8,14 @@ namespace MathGame2
     {
         internal void PlayGame(GameType gameType, Difficulty difficulty)
         {
+            if (gameType == GameType.Random)
+            {
+                PlayRandom();
+                return;
+            }
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
             int score = 0;
 
             for (int i = 0; i < 5; i++)
@@ -28,7 +37,10 @@ namespace MathGame2
 
                 Console.ReadLine();
             }
-            Helpers.AddToHistory(score, gameType, difficulty);
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+
+            Helpers.AddToHistory(score, gameType, difficulty, ts);
             Console.WriteLine($"Game over. Final score: {score}");
             Console.ReadLine();
         }
@@ -41,6 +53,8 @@ namespace MathGame2
             int score = 0;
 
             Random random = new Random();
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
 
             for (int i = 0; i < 5; i++)
             {
@@ -66,7 +80,9 @@ namespace MathGame2
                 }
                 Console.ReadLine();
             }
-            Helpers.AddToHistory(score, GameType.Random, Difficulty.Medium);
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            Helpers.AddToHistory(score, GameType.Random, Difficulty.Medium, ts);
             Console.WriteLine($"Game over. Final score: {score}");
             Console.ReadLine();
         }

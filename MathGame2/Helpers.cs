@@ -24,7 +24,9 @@ namespace MathGame2
             {
                 foreach (var game in gamesToPrint)
                 {
-                    Console.WriteLine($"{game.Date} - {game.Type} ({game.Difficulty}): {game.Score}pts");
+                    string time = String.Format("{0:00}m:{1:00}s", game.TimeToCompletion.Minutes, game.TimeToCompletion.Seconds);
+
+                    Console.WriteLine($"{game.Date} ({time}) - {game.Type} ({game.Difficulty}): {game.Score}pts");
                 }
             }
             Console.WriteLine("-------------------------\n");
@@ -73,7 +75,7 @@ namespace MathGame2
 
             return name;
         }
-        internal static void AddToHistory(int score, GameType gameType, Difficulty difficulty)
+        internal static void AddToHistory(int score, GameType gameType, Difficulty difficulty, TimeSpan ts)
         {
             games.Add(new Game
             {
@@ -81,6 +83,7 @@ namespace MathGame2
                 Score = score,
                 Type = gameType,
                 Difficulty = difficulty,
+                TimeToCompletion = ts,
             });
         }
         internal static int[] GetDivisionNumbers()
