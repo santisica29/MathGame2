@@ -53,7 +53,7 @@ namespace MathGame2
                 GameType gameType = gametypeOptions[randomNumberGT];
                 Difficulty difficulty = difficultyOptions[randomNumberD];
 
-                bool gameWon = PlayRound(gameType, difficulty);
+                bool gameWon = PlayRound(gameType, difficulty); 
 
                 if (gameWon)
                 {
