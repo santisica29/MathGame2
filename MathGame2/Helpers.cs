@@ -11,7 +11,6 @@ namespace MathGame2
         internal static List<Game> games = new();
         internal static void PrintGames()
         {
-
             var gamesToPrint = games.Where(x => x.Date > new DateTime(2022, 08, 09)).OrderByDescending(x => x.Score);
 
             Console.Clear();
@@ -29,7 +28,20 @@ namespace MathGame2
                 }
             }
             Console.WriteLine("-------------------------\n");
-            Console.WriteLine("Press any key to go back to the main menu");
+            if (games.Count > 0)
+            {
+                Console.WriteLine("Press 'd' to delete the list or any other key to go back to the main menu");
+                if (Console.ReadLine().Trim().ToLower() == "d")
+                {
+                    games.Clear(); 
+                    Console.Clear();
+                    Console.WriteLine("List deleted");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Press any key to go back to the main menu");
+            }
             Console.ReadLine();
         }
 
@@ -53,7 +65,7 @@ namespace MathGame2
             Console.WriteLine("Please type your name");
             var name = Console.ReadLine();
 
-            while(string.IsNullOrEmpty(name))
+            while (string.IsNullOrEmpty(name))
             {
                 Console.WriteLine("Name can't be empty");
                 name = Console.ReadLine();
